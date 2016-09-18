@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-9-18 15:56:39 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.scyy.domain.Users" table="users" catalog="ssh" optimistic-lock="version">
+        <id name="userid" type="java.lang.Integer">
+            <column name="userid" />
+            <generator class="identity" />
+        </id>
+        <property name="username" type="string">
+            <column name="username" length="100">
+                <comment>&#211;&#195;&#187;&#167;&#195;&#251;,&#181;&#199;&#194;&#188;&#202;&#177;&#211;&#195;&#181;&#196;</comment>
+            </column>
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="50">
+                <comment>&#213;&#230;&#202;&#181;&#208;&#213;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="50">
+                <comment>&#181;&#199;&#194;&#188;&#195;&#220;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="adddate" type="timestamp">
+            <column name="adddate" length="19">
+                <comment>&#204;&#237;&#188;&#211;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="editdate" type="timestamp">
+            <column name="editdate" length="19">
+                <comment>&#208;&#222;&#184;&#196;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="editwho" type="string">
+            <column name="editwho" length="20">
+                <comment>&#208;&#222;&#184;&#196;&#200;&#203;</comment>
+            </column>
+        </property>
+        <property name="job" type="string">
+            <column name="job" length="20">
+                <comment>&#214;&#176;&#206;&#241;</comment>
+            </column>
+        </property>
+        <property name="feed" type="java.lang.Double">
+            <column name="feed" precision="22" scale="0">
+                <comment>&#181;&#179;&#183;&#209;</comment>
+            </column>
+        </property>
+        <property name="corp" type="string">
+            <column name="corp" length="20" />
+        </property>
+        <property name="type" type="java.lang.Integer">
+            <column name="type">
+                <comment>&#181;&#179;&#212;&#177;&#192;&#224;&#208;&#205;,0:&#213;&#253;&#202;&#189; 1:&#212;&#164;&#177;&#184; 2:&#193;&#247;&#182;&#175;</comment>
+            </column>
+        </property>
+        <property name="pos" type="java.lang.Integer">
+            <column name="pos">
+                <comment>&#214;&#176;&#206;&#187;,0:&#184;&#223;&#178;&#227; 1:&#214;&#208;&#178;&#227; 2:&#187;&#249;&#178;&#227;</comment>
+            </column>
+        </property>
+        <property name="depid" type="java.lang.Integer">
+            <column name="depid">
+                <comment>&#203;&#249;&#202;&#244;&#178;&#191;&#195;&#197;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

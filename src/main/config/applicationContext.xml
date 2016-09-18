@@ -33,12 +33,15 @@
 		
 		<property name="mappingResources">
 			<list>
+				<value>/com/scyy/domain/Users.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
 	
 	<!-- Dao层 -->
-	
+	<bean id = "userDao" class="com.scyy.dao.impl.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 	<!-- Service层 -->
 	
 	<!-- Action层 -->
@@ -46,6 +49,14 @@
 		
 	</bean>
 	
-	<!-- 事务管理 -->
+	<!-- Test层 -->
+	<bean id = "testUser" class="TestUser">
+		<property name="userDao" ref="userDao" />
+	</bean>
 	
+	<!-- 事务管理 -->
+	<bean id ="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>
