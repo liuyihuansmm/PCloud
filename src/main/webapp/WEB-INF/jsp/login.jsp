@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -39,7 +40,8 @@
 
 
 					<div class="login_form">
-						<form action="http://www.js-css.cn" name="loginform"
+						<h3><s:actionerror /></h3>
+						<s:form action="/user_login" name="loginform"
 							accept-charset="utf-8" id="login_form" class="loginForm"
 							method="post">
 							<input type="hidden" name="did" value="0" /> <input type="hidden"
@@ -55,7 +57,7 @@
 								<label class="input-tips" for="p">密码：</label>
 								<div class="inputOuter" id="pArea">
 
-									<input type="password" id="p" name="p" class="inputstyle" />
+									<input type="password" id="p" name="password" class="inputstyle" />
 								</div>
 							</div>
 
@@ -63,7 +65,7 @@
 								<input type="submit" value="登 录" style="width: 150px;"
 									class="button_blue" />
 							</div>
-						</form>
+						</s:form>
 					</div>
 
 				</div>

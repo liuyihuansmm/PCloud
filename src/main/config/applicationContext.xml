@@ -33,7 +33,7 @@
 		
 		<property name="mappingResources">
 			<list>
-				<value>/com/scyy/domain/Users.hbm.xml</value>
+				<value>com/scyy/domain/Users.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -42,11 +42,17 @@
 	<bean id = "userDao" class="com.scyy.dao.impl.UserDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	
 	<!-- Service层 -->
+	<bean id="userService" class="com.scyy.service.impl.UserServiceImpl">
+		<property name="userDao" ref="userDao" />
+	</bean>
 	
 	<!-- Action层 -->
-	<bean id="testAction" class="com.scyy.action.TestAction" scope="prototype">
-		
+	<bean id="testAction" class="com.scyy.action.TestAction" scope="prototype">		
+	</bean>
+	<bean id="userAction" class="com.scyy.action.UserAction" scope="prototype">
+		<property name="userService" ref="userService" />
 	</bean>
 	
 	<!-- Test层 
