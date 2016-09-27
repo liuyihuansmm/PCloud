@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2016-9-18 15:56:39 by Hibernate Tools 4.3.1.Final -->
+<!-- Generated 2016-9-27 10:04:24 by Hibernate Tools 4.3.1.Final -->
 <hibernate-mapping>
     <class name="com.scyy.domain.Users" table="users" catalog="ssh" optimistic-lock="version">
         <id name="userid" type="java.lang.Integer">

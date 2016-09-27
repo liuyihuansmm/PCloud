@@ -1,5 +1,7 @@
 package com.scyy.service.impl;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.scyy.dao.UserDao;
 import com.scyy.domain.Users;
 import com.scyy.service.UserService;
@@ -9,6 +11,7 @@ import com.scyy.service.UserService;
  * @author LYH
  * @EditTime 2016-09-20
  */
+@Transactional
 public class UserServiceImpl implements UserService{
 	
 	/**

@@ -1,5 +1,5 @@
 package com.scyy.domain;
-// Generated 2016-9-18 15:56:39 by Hibernate Tools 4.3.1.Final
+// Generated 2016-9-27 10:04:24 by Hibernate Tools 4.3.1.Final
 
 import java.util.Date;
 

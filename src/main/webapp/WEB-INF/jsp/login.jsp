@@ -8,7 +8,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.9.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/login.js"></script>
 <link href="${pageContext.request.contextPath }/css/login2.css" rel="stylesheet" type="text/css" />
-<title>Insert title here</title>
+<title>党建云</title>
 </head>
 <body>
 	<h1>

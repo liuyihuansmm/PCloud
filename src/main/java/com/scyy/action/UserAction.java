@@ -1,5 +1,7 @@
 package com.scyy.action;
 
+import org.apache.log4j.Logger;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
 import com.scyy.domain.Users;

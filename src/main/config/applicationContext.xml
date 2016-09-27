@@ -9,61 +9,79 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd  
         http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd  
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
-	
+
 	<!-- DB -->
-	<context:property-placeholder location="classpath:jdbc.properties"/>
-	
+	<context:property-placeholder location="classpath:jdbc.properties" />
+
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="${jdbc.Class}" />
 		<property name="jdbcUrl" value="${jdbc.Url}" />
 		<property name="user" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
-	</bean>	
-	
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.show_sql" >true</prop>
-				<prop key="hibernate.fomat" >true</prop>
-				<prop key="hibernate.dialect" >org.hibernate.dialect.MySQLDialect</prop>
-				<prop key="hibernate.hbm2ddl.auto" >update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.fomat">true</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
-		
+
 		<property name="mappingResources">
 			<list>
 				<value>com/scyy/domain/Users.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
-	
+
 	<!-- Dao层 -->
-	<bean id = "userDao" class="com.scyy.dao.impl.UserDaoImpl">
+	<bean id="userDao" class="com.scyy.dao.impl.UserDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
+	<bean id="orgDao" class="com.scyy.dao.impl.OrgDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="departDao" class="com.scyy.dao.impl.DepartDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
 	<!-- Service层 -->
 	<bean id="userService" class="com.scyy.service.impl.UserServiceImpl">
 		<property name="userDao" ref="userDao" />
 	</bean>
-	
+	<bean id="orgService" class="com.scyy.service.impl.OrgServiceImpl">
+		<property name="orgDao" ref="orgDao" />
+	</bean>
+	<bean id="departService" class="com.scyy.service.impl.DepartServiceImpl">
+		<property name="departDao" ref="departDao" />
+	</bean>
+
 	<!-- Action层 -->
-	<bean id="testAction" class="com.scyy.action.TestAction" scope="prototype">		
+	<bean id="testAction" class="com.scyy.action.TestAction" scope="prototype">
 	</bean>
 	<bean id="userAction" class="com.scyy.action.UserAction" scope="prototype">
 		<property name="userService" ref="userService" />
 	</bean>
-	
-	<!-- Test层 
-	<bean id = "testUser" class="TestUser">
-		<property name="userDao" ref="userDao" />
+	<bean id="orgAction" class="com.scyy.action.OrgAction" scope="prototype">
+		<property name="orgService" ref="orgService" />
 	</bean>
-	-->
-	
+	<bean id="departAction" class="com.scyy.action.DeparAction" scope="prototype">
+		<property name="departService" ref="departService" />
+	</bean>
+
+	<!-- Test层 <bean id = "testUser" class="TestUser"> <property name="userDao" 
+		ref="userDao" /> </bean> -->
+
 	<!-- 事务管理 -->
-	<bean id ="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<tx:annotation-driven transaction-manager="transactionManager" />
 </beans>
