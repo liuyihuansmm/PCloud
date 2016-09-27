@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.scyy.domain.Org" table="org">
+		<id name="oid" type="java.lang.Integer">
+			<column name="oid"></column>
+			<generator class="identity"></generator>
+		</id>
+		<property name="oname"	type="java.lang.String"	>
+			<column name="oname"></column>
+		</property>
+		<property name="odesc" type="java.lang.String">
+			<column name="odesc"></column>
+		</property>
+		
+		<set name="departs">
+			<key column="oid"></key>
+			<one-to-many class="com.scyy.domain.Depart"/>
+		</set>
+	</class>
+</hibernate-mapping>
